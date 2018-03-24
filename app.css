@@ -1,0 +1,32 @@
+#calculator {
+    margin: 0 auto;
+    width: 350px;
+    height: auto;
+    background-color: slategray;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+#screen {
+    padding: 10px 0px 10px 0px;
+}
+
+#result {
+    padding: 10px;
+    width: 90%;
+    border: none;
+    border-radius: 3px;
+    text-align: right;
+    font-size: 50px;
+    letter-spacing: 7px;
+}
+
+button {
+    width: 70px;
+    height: 50px;
+    margin: 4px;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    border: none;
+}

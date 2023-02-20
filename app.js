@@ -1,24 +1,37 @@
-"use strict";
-var _buttons = document.querySelectorAll("button"),
-    _buttonsCount = _buttons.length,
-    _result = document.querySelector("#result"),
-    iter = 0;
+'use strict';
 
-for (iter = 0; iter < _buttonsCount; iter++) {
-    _buttons[iter].onclick = doit;
-}
+var _buttons = {},
+    _result = {};
 
-function doit() {
+function calculate() {
     var _currentValue = this.innerHTML;
 
-    if (_currentValue == "=") {
+    if (_currentValue == '=') {
         try {
-            _result.value = eval(_result.value);
+            _result.value = eval(_result.value); // eval dangerous, used for the sake of simplicity
         } catch (e) {
-            _result.value = 0;
+            _result.value = null;
         }
         return;
     }
 
     _result.value += _currentValue;
 }
+
+function initElement() {
+    _buttons = document.querySelectorAll('button');
+    _result = document.querySelector('#result');
+}
+
+function initEvent() {
+    for (var index = 0, length = _buttons.length; index < length; index++) {
+        _buttons[index].addEventListener('click', calculate);
+    }
+}
+
+function init() {
+    initElement();
+    initEvent();
+}
+
+window.addEventListener('DOMContentLoaded', init);
